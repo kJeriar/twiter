@@ -1,56 +1,42 @@
+function agregar(){
+	var tareas = document.getElementById("tarea").value;
+	document.getElementById("tarea").value = "";
 
+	var cont= document.getElementById("contenedor");
 
-var tareas = document.getElementById("tarea").value;
-document.getElementById("tarea").value="";
+	var nuevasTareas = document.createElement("div");
+	var textoNuevaTarea = document.createTextNode("tareas");
+	var elementoContenedor = document.createElement("span");
 
-var cont=document.getElementById("contenedor");
+	elementoContenedor.appendChild(textoNuevaTarea);
+	nuevasTareas.appendChild(elementoContenedor);
+	cont.appendChild(nuevasTareas);
 
-var nuevasTareas=document.createElement("div");
+	var chck = document.createElement("input");
+	chck.type = "checkbox";
+	chck.setAttribute("class", "check");
+	var basura = document.createElement("span");
+	basura.classList.add("fa","fa-trash-o");
+	var cora = document.createElement("span");
+	cora.classList.add("fa", "fa-heart");
 
-var textoNuevaTarea=document.createTextNode(tareas);
+	nuevasTareas.appendChild(chck);
+	nuevasTareas.appendChild(basura);
+	nuevasTareas.appendChild(cora);
 
-var elementoContenedor=document.createElement("span");
-
-elementoContenedor.appendChild(textoNuevaTarea);
-nuevasTareas.appendChild(elementoContenedor);
-cont.appendChild(nuevasTareas);
-
-
-var chck=document.createElement("input");
-chck.type="checkbox";
-chck.setAttribute("class", "check");
-
-var basura=document.createElement("span");
-basura.classList.add("fa", "fa-trash-o");
-
-var cora=document.createElement("span");
-
-cora.classList.add("fa", "fa-heart");
-
-nuevasTareas.appendChild(chck);
-nuevasTareas.appendChild(basura);
-nuevasTareas.appendChild(cora);
-
-chck addEventListener("click", fucntion(){
+	chck.addEventListener("click", function(){
 	elementoContenedor.classList.toggle("tachado");
-})
-
-basura.addEventListener("click", function(){
+});
+	basura.addEventListener("click", function(){
 	cont.removeChild(nuevasTareas);
-})
-
-cora.addEventListener("click", function(){
-	cora.classList.toggle("red");
-})
-
-window.onload=function(){
-	document.getElementById("boton").addEventListener("clicl", agregar);
-}
-
-
-
-
-if (tareas==null||tareas.length==0){
-	alert("Error! debe ingresar tarea");
-	return false;
-}
+});
+	cora.addEventListener("click", function(){
+		cora.classList.toggle("red");
+	});	
+	
+		
+	if(tareas==null || tareas.length == 0){
+		alert("¡Error! Debe ingresar tarea");
+		return false;
+	}
+};
