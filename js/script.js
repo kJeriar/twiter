@@ -43,6 +43,12 @@ cora.addEventListener("click", function(){
 	cora.classList.toggle("red");
 })
 
+window.onload=function(){
+	document.getElementById("boton").addEventListener("clicl", agregar);
+}
+
+
+
 
 if (tareas==null||tareas.length==0){
 	alert("Error! debe ingresar tarea");
